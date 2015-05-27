@@ -24,10 +24,13 @@ android {
         minSdkVersion 7
         targetSdkVersion 22
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:19.0.+'
+    compile 'com.android.support:support-v4:22.0.+'
 }
 
 def repos = new File(rootDir, "repository")
