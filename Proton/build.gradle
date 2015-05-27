@@ -17,12 +17,12 @@ android {
         compile 'javax.inject:javax.inject:1'
     }
 
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 19
+        targetSdkVersion 22
     }
 }
 
