@@ -1,12 +1,13 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.+'
+        classpath 'com.android.tools.build:gradle:2.3.2'
     }
 }
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 
 repositories {
     mavenCentral()
@@ -17,12 +18,12 @@ android {
         compile 'javax.inject:javax.inject:1'
     }
 
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 7
-        targetSdkVersion 22
+        minSdkVersion 9
+        targetSdkVersion 25
     }
     lintOptions {
         abortOnError false
@@ -30,7 +31,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:22.0.+'
+    compile 'com.android.support:support-v4:25.3.1'
 }
 
 def repos = new File(rootDir, "repository")
@@ -41,9 +42,12 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "file://${repos.absolutePath}"
-            pom.version = '1.0.2'
+            pom.version = '1.0.3'
             pom.groupId = 'proton.inject'
             pom.artifactId = 'proton'
+            pom.whenConfigured { pom ->
+                pom.dependencies.removeAll { dep -> dep.artifactId == 'support-v4' }
+            }
         }
     }
 }
