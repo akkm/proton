@@ -18,12 +18,12 @@ android {
         compile 'javax.inject:javax.inject:1'
     }
 
-    compileSdkVersion 25
+    compileSdkVersion 24
     buildToolsVersion "25.0.2"
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion 7
+        targetSdkVersion 24
         consumerProguardFiles 'proguard-rules.txt'
     }
     lintOptions {
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:support-v4:24.1.1'
 }
 
 def repos = new File(rootDir, "repository")
